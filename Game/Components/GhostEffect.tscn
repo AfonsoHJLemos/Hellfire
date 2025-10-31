@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmtwsbw4lg0mm"]
+
+[ext_resource type="Script" uid="uid://bu5g5o544suf5" path="res://Game/Components/GhostEffect.gd" id="1_arixb"]
+
+[node name="GhostEffect" type="Node"]
+script = ExtResource("1_arixb")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
