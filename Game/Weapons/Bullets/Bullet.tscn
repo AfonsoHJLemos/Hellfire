@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccic2tbp87kye"]
+
+[ext_resource type="Script" uid="uid://d264n1vabi5tc" path="res://Game/Weapons/Bullets/Bullet.gd" id="1_ia0cs"]
+[ext_resource type="Texture2D" uid="uid://cuwp0bj4a88w7" path="res://Game/Weapons/Bullets/Bullets.png" id="2_ia0cs"]
+
+[sub_resource type="Animation" id="Animation_ia0cs"]
+resource_name = "Blue"
+length = 0.6250125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ds0gr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1pdic"]
+resource_name = "Red"
+length = 0.6250125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfrrc"]
+_data = {
+&"Blue": SubResource("Animation_ia0cs"),
+&"RESET": SubResource("Animation_ds0gr"),
+&"Red": SubResource("Animation_1pdic")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia0cs"]
+size = Vector2(8, 5)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_ia0cs")
+time = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kfrrc")
+}
+autoplay = "Red"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(5, -0.5)
+texture = ExtResource("2_ia0cs")
+hframes = 5
+vframes = 2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_ia0cs")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tip" type="Node2D" parent="."]
+position = Vector2(8, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

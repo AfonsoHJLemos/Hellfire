@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://c07qlfltrgyq4"]
+
+[ext_resource type="Script" uid="uid://dtq06k8c6ijqj" path="res://Game/Weapons/WeaponStats.gd" id="1_t0w1a"]
+[ext_resource type="Texture2D" uid="uid://8lgms873popg" path="res://Game/Weapons/Resources/Rifle.png" id="2_1klvu"]
+
+[resource]
+script = ExtResource("1_t0w1a")
+sprite = ExtResource("2_1klvu")
+handlePos = Vector2(8, -5)
+muzzlePos = Vector2(23, -4.5)
+damage = 1
+numBullets = 1
+fireRate = 5
+bulletRange = 100
+bulletSpeed = 300
+spread = 10
+metadata/_custom_type_script = "uid://dtq06k8c6ijqj"

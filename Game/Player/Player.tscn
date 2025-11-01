@@ -1,95 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://c33ovqoxw5nw6"]
+[gd_scene load_steps=18 format=3 uid="uid://c33ovqoxw5nw6"]
 
 [ext_resource type="Script" uid="uid://cxhp8iois2jaj" path="res://Game/Player/Player.gd" id="1_4672b"]
 [ext_resource type="Texture2D" uid="uid://bbyolrkjl6jdu" path="res://Game/Player/Player.png" id="1_e0wbv"]
 [ext_resource type="PackedScene" uid="uid://dmtwsbw4lg0mm" path="res://Game/Components/GhostEffect.tscn" id="3_fd82q"]
-
-[sub_resource type="Animation" id="Animation_4672b"]
-resource_name = "WalkDown"
-length = 0.7500125
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_fd82q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_2nirr"]
-resource_name = "WalkLeft"
-length = 0.7500125
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kt3un"]
-resource_name = "WalkRight"
-length = 0.7500125
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_o2hno"]
-resource_name = "WalkUp"
-length = 0.7500125
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3)]
-}
+[ext_resource type="Resource" uid="uid://c07qlfltrgyq4" path="res://Game/Weapons/Resources/Rifle.tres" id="5_65y41"]
+[ext_resource type="PackedScene" uid="uid://cjjt5arqa4m2w" path="res://Game/Weapons/Weapon.tscn" id="5_o2hno"]
+[ext_resource type="Texture2D" uid="uid://c7h2ddnxk1daf" path="res://Game/Player/PlayerHand.png" id="6_o2hno"]
 
 [sub_resource type="Animation" id="Animation_65y41"]
 resource_name = "IdleDown"
@@ -163,6 +79,93 @@ tracks/0/keys = {
 "values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
 }
 
+[sub_resource type="Animation" id="Animation_fd82q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4672b"]
+resource_name = "WalkDown"
+length = 0.7500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2nirr"]
+resource_name = "WalkLeft"
+length = 0.7500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kt3un"]
+resource_name = "WalkRight"
+length = 0.7500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_o2hno"]
+resource_name = "WalkUp"
+length = 0.7500125
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e0asf"]
 _data = {
 &"IdleDown": SubResource("Animation_65y41"),
@@ -180,6 +183,7 @@ _data = {
 size = Vector2(10, 15)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_4672b")
 
@@ -214,6 +218,19 @@ one_shot = true
 
 [node name="DashDelay" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(0, -7.5)
+
+[node name="Weapon" parent="Pivot" instance=ExtResource("5_o2hno")]
+position = Vector2(8, 0)
+scale = Vector2(0.5, 0.5)
+stats = ExtResource("5_65y41")
+
+[node name="Sprite" type="Sprite2D" parent="Pivot"]
+position = Vector2(8, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_o2hno")
 
 [connection signal="timeout" from="Timers/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timers/DashDelay" to="." method="_on_dash_delay_timeout"]

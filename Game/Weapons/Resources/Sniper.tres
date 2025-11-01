@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://0kjrsl46s411"]
+
+[ext_resource type="Script" uid="uid://dtq06k8c6ijqj" path="res://Game/Weapons/WeaponStats.gd" id="1_5hkkx"]
+[ext_resource type="Texture2D" uid="uid://dmox5rjli57mf" path="res://Game/Weapons/Resources/Sniper.png" id="2_l6bha"]
+
+[resource]
+script = ExtResource("1_5hkkx")
+sprite = ExtResource("2_l6bha")
+handlePos = Vector2(16, -4)
+muzzlePos = Vector2(40, -3.5)
+damage = 5
+numBullets = 1
+fireRate = 1.0
+magazine = 5
+reloadTime = 2.0
+bulletRange = 500
+bulletSpeed = 500
+metadata/_custom_type_script = "uid://dtq06k8c6ijqj"

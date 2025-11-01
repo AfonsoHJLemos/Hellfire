@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjjt5arqa4m2w"]
+
+[ext_resource type="Script" uid="uid://binjsnklbxo33" path="res://Game/Weapons/Weapon.gd" id="1_q6u4f"]
+[ext_resource type="Resource" uid="uid://dpxki4fp1jyue" path="res://Game/Weapons/Resources/Pistol.tres" id="2_lmhom"]
+[ext_resource type="PackedScene" uid="uid://ccic2tbp87kye" path="res://Game/Weapons/Bullets/Bullet.tscn" id="3_g0lem"]
+[ext_resource type="Texture2D" uid="uid://bwv6cwkwtakki" path="res://Game/Weapons/Resources/Pistol.png" id="4_k8b6i"]
+[ext_resource type="Texture2D" uid="uid://bfbr31ucuvbu5" path="res://Game/Weapons/MuzzleFlash.png" id="5_qn1qu"]
+
+[sub_resource type="Animation" id="Animation_apd87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Muzzle/Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x1r34"]
+resource_name = "Shoot"
+length = 0.18750313
+step = 0.03125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Muzzle/Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03125, 0.0625, 0.09375, 0.125, 0.15625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i74vp"]
+_data = {
+&"RESET": SubResource("Animation_apd87"),
+&"Shoot": SubResource("Animation_x1r34")
+}
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_q6u4f")
+stats = ExtResource("2_lmhom")
+bullet = ExtResource("3_g0lem")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i74vp")
+}
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(6, -6)
+texture = ExtResource("4_k8b6i")
+
+[node name="Handle" type="Node2D" parent="."]
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(10, -5.5)
+
+[node name="Sprite" type="Sprite2D" parent="Muzzle"]
+texture = ExtResource("5_qn1qu")
+offset = Vector2(8, -0.5)
+hframes = 6
+frame = 5
+
+[node name="FireDelay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="FireDelay" to="." method="_on_fire_delay_timeout"]

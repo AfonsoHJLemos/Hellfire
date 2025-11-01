@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=3 format=3 uid="uid://ctppf16kwmwvp"]
+
+[ext_resource type="Script" uid="uid://dtq06k8c6ijqj" path="res://Game/Weapons/WeaponStats.gd" id="1_0p1n3"]
+[ext_resource type="Texture2D" uid="uid://irkc6qxog1d3" path="res://Game/Weapons/Resources/Shotgun.png" id="2_c2txs"]
+
+[resource]
+script = ExtResource("1_0p1n3")
+sprite = ExtResource("2_c2txs")
+handlePos = Vector2(14, -5)
+muzzlePos = Vector2(30, -4.5)
+damage = 1
+numBullets = 8
+fireRate = 1
+bulletRange = 50
+bulletSpeed = 400
+spread = 30
+metadata/_custom_type_script = "uid://dtq06k8c6ijqj"

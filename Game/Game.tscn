@@ -9,3 +9,5 @@
 
 [node name="Player" parent="." instance=ExtResource("2_vrr3t")]
 position = Vector2(320, 253)
+
+[node name="Bullets" type="Node" parent="."]
